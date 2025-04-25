@@ -5,21 +5,21 @@
 class Outrig < Formula
   desc "Real-time debugging for Go programs, similar to Chrome DevTools"
   homepage "https://github.com/outrigdev/outrig"
-  version "0.3.0"
+  version "0.3.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/outrigdev/outrig/releases/download/v0.3.0/outrig_0.3.0_Darwin_x86_64.tar.gz"
-      sha256 "3ef046a10f6a6cf378328b7a8315640bf2c5d8ec14cc072dc4dd78eb36cd564f"
+      url "https://github.com/outrigdev/outrig/releases/download/v0.3.1/outrig_0.3.1_Darwin_x86_64.tar.gz"
+      sha256 "247d53c92d80cc080ff5a7ddf01b31127fb1b7a495db42fae81f46397feab42f"
 
       def install
         bin.install "outrig"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/outrigdev/outrig/releases/download/v0.3.0/outrig_0.3.0_Darwin_arm64.tar.gz"
-      sha256 "7d9059777147678dbe77e920693c5571b12a73fa514a26cacf2ba05f84e59d14"
+      url "https://github.com/outrigdev/outrig/releases/download/v0.3.1/outrig_0.3.1_Darwin_arm64.tar.gz"
+      sha256 "0429e873bb4cfb4cfb5fa6a91398b6d1fb79387c9269392cf662308dd76869b2"
 
       def install
         bin.install "outrig"
@@ -30,8 +30,8 @@ class Outrig < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/outrigdev/outrig/releases/download/v0.3.0/outrig_0.3.0_Linux_x86_64.tar.gz"
-        sha256 "dfb4cbf0255567405ffd4b7a8f2362e541b55ceebb13e5bf894fa4758d93f539"
+        url "https://github.com/outrigdev/outrig/releases/download/v0.3.1/outrig_0.3.1_Linux_x86_64.tar.gz"
+        sha256 "5fccda145350603f21425e715ee37710384029593b4aaca638d0d17cb72422fb"
 
         def install
           bin.install "outrig"
@@ -40,8 +40,8 @@ class Outrig < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/outrigdev/outrig/releases/download/v0.3.0/outrig_0.3.0_Linux_arm64.tar.gz"
-        sha256 "2f261b83301d2eef813e19945dc7e4fedcc36bef3854bcb8d37672ac03e7dc3d"
+        url "https://github.com/outrigdev/outrig/releases/download/v0.3.1/outrig_0.3.1_Linux_arm64.tar.gz"
+        sha256 "594b706d008ba66c26eaf1de3d84d12266fe3369ae1092f1b968f9f5d3eb0975"
 
         def install
           bin.install "outrig"
@@ -50,8 +50,21 @@ class Outrig < Formula
     end
   end
 
-  def post_install
-    system "#{bin}/outrig", "postinstall"
+  def caveats
+    <<~EOS
+      Outrig has been installed successfully!
+
+      Quick start and docs:
+        https://outrig.run/docs/quickstart
+
+      To start the Outrig server:
+        outrig server
+
+      ---
+      Outrig is open source and free for individual users.
+      If you find it useful, please star us on GitHub:
+        https://github.com/outrigdev/outrig
+    EOS
   end
 
   test do
