@@ -5,21 +5,21 @@
 class Outrig < Formula
   desc "Observability monitor for Go programs during development time"
   homepage "https://github.com/outrigdev/outrig"
-  version "0.3.6"
+  version "0.4.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/outrigdev/outrig/releases/download/v0.3.6/outrig_0.3.6_Darwin_x86_64.tar.gz"
-      sha256 "ba16c10cc6f4a9e06e0af3909ed03a747072e4d4cd80c17445327bbd9cb36ddd"
+      url "https://github.com/outrigdev/outrig/releases/download/v0.4.0/outrig_0.4.0_Darwin_x86_64.tar.gz"
+      sha256 "c41c47b9cc0d49cbecbf47fb4d471343c9e30ad68f4da80a863af3c44171f1c8"
 
       def install
         bin.install "outrig"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/outrigdev/outrig/releases/download/v0.3.6/outrig_0.3.6_Darwin_arm64.tar.gz"
-      sha256 "7d6e0a7983f9149101eebff6e90008d66960688bedffeaf34adcfa7f7ddefb77"
+      url "https://github.com/outrigdev/outrig/releases/download/v0.4.0/outrig_0.4.0_Darwin_arm64.tar.gz"
+      sha256 "4a17da742d2ce5aaff9d5bddf41eaf2ea23152c4bb626d3062d139ffb9062b98"
 
       def install
         bin.install "outrig"
@@ -30,8 +30,8 @@ class Outrig < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/outrigdev/outrig/releases/download/v0.3.6/outrig_0.3.6_Linux_x86_64.tar.gz"
-        sha256 "da31d92ebc96e3da8134f0ae463ffdf153babef7b7b83612f5f04bdc65977986"
+        url "https://github.com/outrigdev/outrig/releases/download/v0.4.0/outrig_0.4.0_Linux_x86_64.tar.gz"
+        sha256 "f3708e9295155f130a7a960c1986c8d9156dd3a5e13cf5a26ea8417e5572b106"
 
         def install
           bin.install "outrig"
@@ -40,8 +40,8 @@ class Outrig < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/outrigdev/outrig/releases/download/v0.3.6/outrig_0.3.6_Linux_arm64.tar.gz"
-        sha256 "fc7e5751471379d657345011de9e7ed2469de90add37eee39017d07d2bbc59e8"
+        url "https://github.com/outrigdev/outrig/releases/download/v0.4.0/outrig_0.4.0_Linux_arm64.tar.gz"
+        sha256 "698fbd1267b7b634d344732935b5d7f310eb19d4f80aad38986c687ab9f8a0dc"
 
         def install
           bin.install "outrig"
