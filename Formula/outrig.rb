@@ -5,21 +5,21 @@
 class Outrig < Formula
   desc "Observability monitor for Go programs during development time"
   homepage "https://github.com/outrigdev/outrig"
-  version "0.4.6"
+  version "0.5.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/outrigdev/outrig/releases/download/v0.4.6/outrig_0.4.6_Darwin_x86_64.tar.gz"
-      sha256 "54658dc03a2f7352d46ee1c2dd57b810d2f8038e2bfbd6dc79d8426f4613f6ba"
+      url "https://github.com/outrigdev/outrig/releases/download/v0.5.0/outrig_0.5.0_Darwin_x86_64.tar.gz"
+      sha256 "cb452c41f8f66fb81747b9c089b1e48329fdf5870ae8ad5882ac031b8cb7e480"
 
       def install
         bin.install "outrig"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/outrigdev/outrig/releases/download/v0.4.6/outrig_0.4.6_Darwin_arm64.tar.gz"
-      sha256 "05818c23b4ded85fa69235be919624873cb9a87266916ec2ac6437f3296151a1"
+      url "https://github.com/outrigdev/outrig/releases/download/v0.5.0/outrig_0.5.0_Darwin_arm64.tar.gz"
+      sha256 "f75a4ca2222d7ecaff31dec05aeff9f289214d9a11d557124a0499256be1bc8a"
 
       def install
         bin.install "outrig"
@@ -30,8 +30,8 @@ class Outrig < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/outrigdev/outrig/releases/download/v0.4.6/outrig_0.4.6_Linux_x86_64.tar.gz"
-        sha256 "616d5223d19ed661e2df43cbcd1be30056261552e33a25db985671895f2c00fc"
+        url "https://github.com/outrigdev/outrig/releases/download/v0.5.0/outrig_0.5.0_Linux_x86_64.tar.gz"
+        sha256 "48ca1b1d7b0d5a76f5c444789681a8708b5ef88f126219f6ca6ee839466049ab"
 
         def install
           bin.install "outrig"
@@ -40,8 +40,8 @@ class Outrig < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/outrigdev/outrig/releases/download/v0.4.6/outrig_0.4.6_Linux_arm64.tar.gz"
-        sha256 "ee3f07963befe99a4fcb69c308eb7e400905697b50449dca69c50bd001fa09d4"
+        url "https://github.com/outrigdev/outrig/releases/download/v0.5.0/outrig_0.5.0_Linux_arm64.tar.gz"
+        sha256 "392a3c1b945aaf0202acdb81328cf7d9c562b0a45c2e6ffafa8aa8cb25abf3dc"
 
         def install
           bin.install "outrig"
@@ -55,10 +55,13 @@ class Outrig < Formula
       Outrig has been installed successfully!
 
       Quick start and docs:
-        https://outrig.run/docs/quickstart
+      https://outrig.run/docs/quickstart
 
-      To start the Outrig server:
+      To start the Outrig server manually (foreground):
         outrig server
+
+      To load and start Outrig as a background service (recommended):
+        brew services start outrig
 
       ---
       Outrig is open source and free for individual users.
@@ -66,6 +69,15 @@ class Outrig < Formula
         https://github.com/outrigdev/outrig
       ---
     EOS
+  end
+
+  service do
+    sockets "tcp://127.0.0.1:5005"
+    run [opt_bin/"outrig", "server"]
+    keep_alive false
+    log_path var/"log/outrig.log"
+    error_log_path var/"log/outrig.log"
+    working_dir var
   end
 
   test do
