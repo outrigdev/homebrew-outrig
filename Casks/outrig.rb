@@ -1,14 +1,14 @@
 cask "outrig" do
-  version "0.7.4"
+  version "0.8.0-beta.1"
   
   on_intel do
-    url "https://github.com/outrigdev/outrig/releases/download/v0.7.4/Outrig-darwin-amd64-v0.7.4.dmg"
-    sha256 "f8ca01028a3dd58d5c65d35cb16b0903fafe58dc8b8cd5bb57b6d95b1b8ad480"
+    url "https://github.com/outrigdev/outrig/releases/download/v0.8.0-beta.1/Outrig-darwin-amd64-v0.8.0-beta.1.dmg"
+    sha256 "5fc1a1aaad8448a0f4b70464804dbc1959a376143ea91948cdd9cb0389f3c90b"
   end
   
   on_arm do
-    url "https://github.com/outrigdev/outrig/releases/download/v0.7.4/Outrig-darwin-arm64-v0.7.4.dmg"
-    sha256 "139879978c789cb08eeda0e8f951c480c6549bd2899de4549f477509de4c4378"
+    url "https://github.com/outrigdev/outrig/releases/download/v0.8.0-beta.1/Outrig-darwin-arm64-v0.8.0-beta.1.dmg"
+    sha256 "390b91c4a21fd5be3e1c08a6471916b856a51d3ee603519a029dce8739c9ecb3"
   end
 
   name "Outrig"
