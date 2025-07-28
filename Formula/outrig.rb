@@ -11,7 +11,7 @@ class Outrig < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/outrigdev/outrig/releases/download/v0.9.0/outrig_0.9.0_Darwin_x86_64.tar.gz"
-      sha256 "bb0870c681bec991eda245ed9648ac5e41d18d7580e6227d3c818e7dc58662df"
+      sha256 "97d474f7f4e371b6986f69c6fa09a43a75e4b9f22939a93512b9ce8a38d3d780"
 
       def install
         bin.install "outrig"
@@ -19,7 +19,7 @@ class Outrig < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/outrigdev/outrig/releases/download/v0.9.0/outrig_0.9.0_Darwin_arm64.tar.gz"
-      sha256 "1b44ec64f5cf56a764abc8c6451ac26dc3f9ee426fe535e6d0034a703a5c18ae"
+      sha256 "053818a443b91cc93840f28f0d7d92603e0f73f184d7fd15499c7536759a98fd"
 
       def install
         bin.install "outrig"
@@ -31,7 +31,7 @@ class Outrig < Formula
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/outrigdev/outrig/releases/download/v0.9.0/outrig_0.9.0_Linux_x86_64.tar.gz"
-        sha256 "1ac379f2b87c051b8f70536a345015eb8d50b961e4040574d8e70b74533b1bae"
+        sha256 "d2eeaa8cf3d8b64b57b5638f2df8219c38c8f10063765f8e9b045bc22c355781"
 
         def install
           bin.install "outrig"
@@ -41,7 +41,7 @@ class Outrig < Formula
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/outrigdev/outrig/releases/download/v0.9.0/outrig_0.9.0_Linux_arm64.tar.gz"
-        sha256 "613dda1775fd712afd8ee5658c9169cf821ae4c04edd4ce60fc9dfb958a83122"
+        sha256 "7e5f7f28bbbcad069673aae6f93a14083f61969533441f8feb23c12ede90fff8"
 
         def install
           bin.install "outrig"
